@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "react-devtools": "^7.0.1",
+    "react-dom": "^19.2.5",
     "react-router-dom": "^7.15.0"
   }
 }
