@@ -1,4 +1,7 @@
 
+using FullStackReact.Server.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace FullStackReact.Server
 {
     public class Program
@@ -9,9 +12,15 @@ namespace FullStackReact.Server
 
             // Add services to the container.
 
+            //see tehakse selleks, et saaks ühendust appsettings.json classis oleva infoga
+            builder.Services.AddDbContext<PlanetContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
+
+
 
             var app = builder.Build();
 
