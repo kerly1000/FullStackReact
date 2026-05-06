@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="fullstackreact.client/fullstackreact.client.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="FullStackReact.Server/FullStackReact.Server.csproj" />
+</Solution>
