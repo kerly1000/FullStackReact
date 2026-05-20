@@ -50,7 +50,13 @@ export default defineConfig({
             '^/planets': {
                 target,
                 secure: false
-            }
+            },
+            //kui tahad backendiga suhelda, 
+            //siis kõik requestid, mis algavad /api, suunatakse backendile
+            '^/api': {
+                target,
+                secure: false
+            },
         },
         port: parseInt(env.DEV_SERVER_PORT || '60959'),
         https: {

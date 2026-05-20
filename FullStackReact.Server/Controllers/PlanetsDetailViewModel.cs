@@ -1,6 +1,6 @@
-﻿namespace FullStackReact.Server.ViewModel
+﻿namespace FullStackReact.Server.Controllers
 {
-    public class PlanetsCreateViewModel
+    internal class PlanetsDetailViewModel
     {
         public Guid PlanetsId { get; set; }
         public string Name { get; set; } = string.Empty;

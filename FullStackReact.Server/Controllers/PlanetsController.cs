@@ -20,7 +20,7 @@ namespace FullStackReact.Server.Controllers
             _context = context;
         }
 
-        public IActionResult SchoolIndex()
+        public IActionResult PlanetIndex()
         {
             //muutuja resulti sisse pannakse domaini alt saadud info
             //mis antakse vaatesse returni juures
@@ -68,5 +68,76 @@ namespace FullStackReact.Server.Controllers
                 mass = planet.Mass
             });
         }
+
+        // GET: api/planets/{id}
+        [HttpGet("{planetsId:guid}")]
+        public IActionResult Detail(Guid planetsId)
+        {
+            var planet = _context.Planets
+                .Where(x => x.PlanetsId == planetsId)
+                .Select(x => new PlanetsDetailViewModel
+                {
+                    PlanetsId = x.PlanetsId,
+                    Name = x.Name,
+                    Description = x.Description,
+                    Type = x.Type,
+                    Mass = x.Mass
+                })
+                .FirstOrDefault();
+
+            if (planet == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(planet);
+        }
+
+        [HttpPut("{planetsId:guid}")]
+        public IActionResult Update(Guid planetsId, [FromBody] PlanetsUpdateViewModel model)
+        {
+            //siin tuleb kontrollida, kas planet on olemas, kui ei ole, siis tagastada NotFound
+            var planet = _context.Planets.FirstOrDefault(x => x.PlanetsId == planetsId);
+            if (planet == null)
+            {
+                return NotFound();
+            }
+
+            //siin tuleb kontrollida
+            //kas Name on tühi, kui on, siis tagastada BadRequest
+            if (string.IsNullOrWhiteSpace(model.Name))
+            {
+                return BadRequest("Name is required");
+            }
+
+            //siin tuleb updateida olemasolevat planet objekti, mitte luua uut
+            planet.Name = model.Name;
+            planet.Description = model.Description;
+            planet.Type = model.Type;
+            planet.Mass = model.Mass;
+
+            //siin salvestad muutused andmebaasi
+            _context.SaveChanges();
+
+            //siin tagastad Ok, kuna update on edukas
+            //võid ka tagastada updated planet objekti, kui soovid
+            return Ok();
+        }
+        [HttpDelete("{planetsId:guid}")]
+        public IActionResult Delete(Guid planetsId)
+        {
+            var planet = _context.Planets.FirstOrDefault(x => x.PlanetsId == planetsId);
+            if (planet == null)
+            {
+                return NotFound();
+            }
+
+            //eemaldab nimekirjast
+            _context.Planets.Remove(planet);
+
+            _context.SaveChanges();
+            return Ok();
+        }
+
     }
 }

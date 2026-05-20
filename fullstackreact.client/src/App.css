@@ -1,11 +1,121 @@
-﻿#root {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: center;
+﻿﻿body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: radial-gradient(circle at top left, #1b3f9b, #0b1d5a 40%, #051133 100%);
+    min-height: 100vh;
+    color: #ffffff;
 }
 
-th, td {
-    padding-left: 1rem;
-    padding-right: 1rem;
+
+#root {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+th {
+    background: rgba(255,255,255,0.15);
+    padding: 12px;
+    font-weight: 600;
+}
+
+td {
+    padding: 10px;
+}
+
+tr:nth-child(even) {
+    background: rgba(255,255,255,0.05);
+}
+
+tr:hover {
+    background: rgba(255,255,255,0.12);
+}
+
+
+button {
+    border: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+
+    button.primary {
+        background: linear-gradient(135deg, #3b82f6, #2563eb);
+        color: white;
+    }
+
+        button.primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(59,130,246,0.6);
+        }
+
+
+    button.danger {
+        background: linear-gradient(135deg, #ef4444, #b91c1c);
+        color: white;
+    }
+
+        button.danger:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(239,68,68,0.6);
+        }
+
+
+    button.secondary {
+        background: linear-gradient(135deg, #9ca3af, #6b7280);
+        color: white;
+    }
+
+        button.secondary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(156,163,175,0.6);
+        }
+
+
+h1, h2 {
+    text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+button.success {
+    background: linear-gradient(135deg, #22c55e, #15803d);
+    color: white;
+}
+
+    button.success:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(34,197,94,0.6);
+    }
+
+
+button.warning {
+    background: linear-gradient(135deg, #facc15, #eab308);
+    color: #1f2937;
+    font-weight: 700;
+}
+
+    button.warning:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(250,204,21,0.6);
+    }
+
+
+.page-card.pink {
+    background: linear-gradient(135deg, #312e81, #7c3aed, #db2777);
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
 }
