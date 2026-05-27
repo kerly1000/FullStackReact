@@ -40,6 +40,10 @@ function PlanetsList() {
         navigate("/planets/create");
     }
 
+    const openDelete = (planetsId: string) => {
+        navigate(`/planets/${planetsId}/delete`);
+    };
+
 
     return (
         <div className="page-card">
@@ -96,8 +100,15 @@ function PlanetsList() {
                                             >
                                                 Edit
                                             </button>
+
+                                            <button
+                                                type="button"
+                                                className="danger"
+                                                onClick={() => openDelete(planet.planetsId)}
+                                            >
+                                                Delete
+                                            </button>
                                         </div>
-                                        siia teha nupud edit, details ja delete
                                     </td>
                                 </tr>
                             ))

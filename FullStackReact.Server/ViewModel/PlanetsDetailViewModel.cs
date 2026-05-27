@@ -1,4 +1,4 @@
-﻿namespace FullStackReact.Server.Controllers
+﻿namespace FullStackReact.Server.ViewModel
 {
     internal class PlanetsDetailViewModel
     {

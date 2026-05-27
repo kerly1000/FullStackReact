@@ -29,7 +29,7 @@ export default function PlanetsCreate() {
         setForm((p) => ({ ...p, [name]: value }));
     };
 
-    const onSubmit = async (e: React.FormEvent) => {
+    const onSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
         e.preventDefault();
 
         try {

@@ -30,11 +30,7 @@ export default function PlanetsDetail() {
                 const data: Planets = await response.json();
                 setPlanet(data);
             } catch (err) {
-                if (err instanceof Error) {
-                    setError(err.message);
-                } else {
-                    setError("An unknown error occurred");
-                }
+                setError(err?.message ?? "An unknown error occurred");
             } finally {
                 setLoading(false);
             }
@@ -98,7 +94,7 @@ export default function PlanetsDetail() {
             </table>
             <div style={{ marginTop: 12, display: "flex", gap: 12 }}>
                 <button type="button" className="success" onClick={() => navigate(-1)}>
-                    Back
+                    To List
                 </button>
             </div>
         </div>
